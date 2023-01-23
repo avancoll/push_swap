@@ -6,7 +6,7 @@
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:58:54 by avancoll          #+#    #+#             */
-/*   Updated: 2023/01/23 15:41:14 by avancoll         ###   ########.fr       */
+/*   Updated: 2023/01/23 17:39:32 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdio.h> // A EFFACER ATTENTION
+
 typedef struct s_list
 {
 	int				content;
@@ -29,5 +30,7 @@ int		ft_lstsize(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 t_list	*parsing(char **argv);
 int		ft_atoi(const char *str);
+
+void	swap_a(t_list *stack_a);
 
 #endif
