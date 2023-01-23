@@ -6,13 +6,13 @@
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:52:45 by avancoll          #+#    #+#             */
-/*   Updated: 2023/01/23 15:33:35 by avancoll         ###   ########.fr       */
+/*   Updated: 2023/01/23 18:38:37 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(int content)
+t_list	*ft_lstnew(void *content)
 {
 	t_list	*res;
 
@@ -61,4 +61,12 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		temp = *lst;
 		ft_lstlast(temp)->next = new;
 	}
+}
+
+void	ft_lstadd_front(t_list **lst, t_list *new)
+{
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }
