@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/16 16:58:36 by avancoll          #+#    #+#             */
-/*   Updated: 2023/01/23 16:21:24 by avancoll         ###   ########.fr       */
+/*   Created: 2023/01/23 14:50:24 by avancoll          #+#    #+#             */
+/*   Updated: 2023/01/23 15:32:19 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+t_list	*parsing(char **argv)
 {
 	t_list	*stack_a;
-	t_list	*stack_b;
+	t_list	*new;
+	int		i;
 
-	if (argc < 2)
-		return (1);
-	stack_a = parsing(argv);
-	stack_b = NULL;
-	while (stack_a)
+	i = 1;
+	stack_a = ft_lstnew(ft_atoi(argv[i]));
+	while (argv[++i])
 	{
-		printf("%d\n", stack_a->content);
-		stack_a = stack_a->next;
+		new = ft_lstnew(ft_atoi(argv[i]));
+		ft_lstadd_back(&stack_a, new);
 	}
-	return (0);
+	return (stack_a);
 }
