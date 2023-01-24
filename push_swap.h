@@ -6,7 +6,7 @@
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:58:54 by avancoll          #+#    #+#             */
-/*   Updated: 2023/01/24 16:32:33 by avancoll         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:37:18 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,5 @@ void	push(t_list **stack1, t_list **stack2, int event);
 void	rotate(t_list **stack, int event);
 void	reverse_rotate(t_list **stack, int event);
 void	double_operation(t_list **stack_a, t_list **stack_b, int event);
+
 #endif
