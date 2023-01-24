@@ -6,7 +6,7 @@
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:58:54 by avancoll          #+#    #+#             */
-/*   Updated: 2023/01/23 18:53:06 by avancoll         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:32:33 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,18 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdio.h> // A EFFACER ATTENTION
+
+# define SWAP_A 1
+# define SWAP_B 2
+# define SWAP_ALL 3
+# define PUSH_A 4
+# define PUSH_B 5
+# define ROTATE_A 6
+# define ROTATE_B 7
+# define ROTATE_ALL 8
+# define REVERSE_ROTATE_A 9
+# define REVERSE_ROTATE_B 10
+# define REVERSE_ROTATE_ALL 11
 
 typedef struct s_list
 {
@@ -35,7 +47,8 @@ t_list	*parsing(char **argv);
 int		ft_atoi(const char *str);
 
 void	swap(t_list *stack, int event);
-void	rotate(t_list **stack);
-void	reverse_rotate(t_list *stack);
-
+void	push(t_list **stack1, t_list **stack2, int event);
+void	rotate(t_list **stack, int event);
+void	reverse_rotate(t_list **stack, int event);
+void	double_operation(t_list **stack_a, t_list **stack_b, int event);
 #endif
