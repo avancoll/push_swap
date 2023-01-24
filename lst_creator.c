@@ -6,13 +6,13 @@
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:52:45 by avancoll          #+#    #+#             */
-/*   Updated: 2023/01/23 18:38:37 by avancoll         ###   ########.fr       */
+/*   Updated: 2023/01/24 16:42:43 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*res;
 
