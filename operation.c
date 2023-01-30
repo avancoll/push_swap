@@ -6,7 +6,7 @@
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:50:39 by avancoll          #+#    #+#             */
-/*   Updated: 2023/01/24 16:37:33 by avancoll         ###   ########.fr       */
+/*   Updated: 2023/01/30 17:22:58 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	rotate(t_list **stack, int event)
 		write(1, "ra\n", 3);
 	else if (event == ROTATE_B)
 		write(1, "rb\n", 3);
-	if (!*stack)
+	if (!*stack || !(*stack)->next)
 		return ;
 	temp1 = *stack;
 	temp2 = *stack;
