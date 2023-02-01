@@ -6,7 +6,7 @@
 #    By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/16 16:58:44 by avancoll          #+#    #+#              #
-#    Updated: 2023/01/23 17:09:19 by avancoll         ###   ########.fr        #
+#    Updated: 2023/02/01 17:29:11 by avancoll         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ SRCS =	push_swap.c\
 		lst_creator.c\
 		parsing.c\
 		utils.c\
-		operation.c
+		operation.c\
+		algorithm.c
 
 
 OBJS		= $(SRCS:.c=.o)
