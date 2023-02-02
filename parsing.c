@@ -6,7 +6,7 @@
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:50:24 by avancoll          #+#    #+#             */
-/*   Updated: 2023/02/02 15:48:25 by avancoll         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:28:52 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,22 @@ t_list	*parsing(char **argv, t_data *data)
 	int		i;
 
 	i = 1;
-	stack_a = ft_lstnew(ft_atoi(argv[i]));
+	data->error = 0;
+	stack_a = ft_lstnew(ft_atoi(argv[i], &data));
 	if (!stack_a)
 		return (NULL);
 	stack_a->value = 0;
 	while (argv[++i])
 	{
-		new = ft_lstnew(ft_atoi(argv[i]));
+		new = ft_lstnew(ft_atoi(argv[i], &data));
 		if (!new)
 			return (free_list(stack_a));
 		new->value = 0;
 		ft_lstadd_back(&stack_a, new);
 	}
 	data->size = i - 1;
+	if (data->error)
+		return (free_list(stack_a));
 	return (stack_a);
 }
 

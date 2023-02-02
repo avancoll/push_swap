@@ -6,7 +6,7 @@
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:58:36 by avancoll          #+#    #+#             */
-/*   Updated: 2023/02/02 15:46:30 by avancoll         ###   ########.fr       */
+/*   Updated: 2023/02/02 16:29:19 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	main(int argc, char **argv)
 	if (argc < 3)
 		return (0);
 	stack_a = parsing(argv, &data);
+	if (!stack_a)
+		return (1);
 	stack_b = NULL;
 	if (is_sorted(stack_a))
 		return (0);
