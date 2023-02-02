@@ -6,7 +6,7 @@
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:58:54 by avancoll          #+#    #+#             */
-/*   Updated: 2023/02/02 16:30:09 by avancoll         ###   ########.fr       */
+/*   Updated: 2023/02/02 18:10:22 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,13 +52,19 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 t_list	*free_list(t_list *stack_a);
 t_list	*parsing(char **argv, t_data *data);
 int		ft_atoi(const char *s, t_data **data);
-void	swap(t_list *stack, int event);
+void	swap(t_list **stack, int event);
 void	push(t_list **stack1, t_list **stack2, int event);
 void	rotate(t_list **stack, int event);
 void	reverse_rotate(t_list **stack, int event);
 void	double_operation(t_list **stack_a, t_list **stack_b, int event);
-int		radix(t_list **stack_a, t_list **stack_b, t_data data);
 void	transform(t_list *stack_a, t_data *data);
 int		is_sorted(t_list *stack_a);
 int		is_double(t_list *stack_a);
+void	sort_two(t_list **stack_a);
+void	sort_three(t_list **stack_a, int max);
+void	sort_four(t_list **stack_a, t_list **stack_b, int min, int max);
+void	sort_five(t_list **stack_a, t_list **stack_b);
+void	radix(t_list **stack_a, t_list **stack_b, t_data data);
+void	algorithm(t_list **stack_a, t_list **stack_b, t_data data);
+
 #endif

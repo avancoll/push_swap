@@ -6,26 +6,28 @@
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:50:39 by avancoll          #+#    #+#             */
-/*   Updated: 2023/02/01 16:08:21 by avancoll         ###   ########.fr       */
+/*   Updated: 2023/02/02 18:12:38 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_list *stack, int event)
+void	swap(t_list **stack, int event)
 {
-	t_list	temp;
+	t_list	*temp1;
+	t_list	*temp2;
 
 	if (event == SWAP_A)
 		write(1, "sa\n", 3);
 	else if (event == SWAP_B)
 		write(1, "sb\n", 3);
-	if (!stack || !stack->next)
+	if (!*stack || !(*stack)->next)
 		return ;
-	temp.content = stack->content;
-	stack->content = stack->next->content;
-	stack = stack->next;
-	stack->content = temp.content;
+	temp1 = *stack;
+	temp2 = (*stack)->next;
+	temp1->next = temp2->next;
+	temp2->next = temp1;
+	*stack = temp2;
 }
 
 void	push(t_list **stack1, t_list **stack2, int event)
@@ -91,8 +93,8 @@ void	double_operation(t_list **stack_a, t_list **stack_b, int event)
 {
 	if (event == SWAP_ALL)
 	{
-		swap(*stack_a, 0);
-		swap(*stack_b, 0);
+		swap(stack_a, 0);
+		swap(stack_b, 0);
 		write(1, "ss\n", 3);
 	}
 	else if (event == ROTATE_ALL)

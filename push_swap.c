@@ -6,7 +6,7 @@
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:58:36 by avancoll          #+#    #+#             */
-/*   Updated: 2023/02/02 16:29:19 by avancoll         ###   ########.fr       */
+/*   Updated: 2023/02/02 18:12:55 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(int argc, char **argv)
 	if (is_double(stack_a))
 		return (1);
 	transform(stack_a, &data);
-	radix(&stack_a, &stack_b, data);
+	algorithm(&stack_a, &stack_b, data);
 	free_list(stack_a);
 	return (0);
 }
