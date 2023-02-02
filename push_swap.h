@@ -6,7 +6,7 @@
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:58:54 by avancoll          #+#    #+#             */
-/*   Updated: 2023/02/01 17:49:23 by avancoll         ###   ########.fr       */
+/*   Updated: 2023/02/02 15:45:03 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdio.h> // A EFFACER ATTENTION
+# include "wraloc.h"
 
 # define SWAP_A 1
 # define SWAP_B 2
@@ -40,7 +41,6 @@ typedef struct s_list
 typedef struct s_data
 {
 	int	size;
-	int	max;
 	int	max_bits;
 }	t_data;
 
@@ -49,7 +49,7 @@ t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstdelone(t_list *lst, void (*del)(void *));
+t_list	*free_list(t_list *stack_a);
 
 t_list	*parsing(char **argv, t_data *data);
 int		ft_atoi(const char *str);
@@ -62,5 +62,5 @@ void	double_operation(t_list **stack_a, t_list **stack_b, int event);
 int		radix(t_list **stack_a, t_list **stack_b, t_data data);
 void	transform(t_list *stack_a, t_data *data);
 int		is_sorted(t_list *stack_a);
-
+int		is_double(t_list *stack_a);
 #endif
