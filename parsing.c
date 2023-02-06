@@ -6,7 +6,7 @@
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:50:24 by avancoll          #+#    #+#             */
-/*   Updated: 2023/02/06 16:41:31 by avancoll         ###   ########.fr       */
+/*   Updated: 2023/02/06 17:12:19 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,10 @@ void	transform(t_list *stack_a, t_data *data)
 		}
 		temp1 = temp1->next;
 	}
-	data->max_bits = 1;
-	while (max && data->max_bits++)
+	data->max_bits = 0;
+	while (max)
+	{
+		data->max_bits++;
 		max /= 2;
+	}
 }
