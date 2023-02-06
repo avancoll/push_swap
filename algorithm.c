@@ -6,25 +6,11 @@
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 17:24:49 by avancoll          #+#    #+#             */
-/*   Updated: 2023/02/02 18:10:15 by avancoll         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:36:03 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	algorithm(t_list **stack_a, t_list **stack_b, t_data data)
-{
-	if (data.size == 2)
-		sort_two(stack_a);
-	else if (data.size == 3)
-		sort_three(stack_a, 2);
-	else if (data.size == 4)
-		sort_four(stack_a, stack_b, 0, 3);
-	else if (data.size == 5)
-		sort_five(stack_a, stack_b);
-	else
-		radix(stack_a, stack_b, data);
-}
 
 void	radix(t_list **stack_a, t_list **stack_b, t_data data)
 {

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_creator.c                                      :+:      :+:    :+:   */
+/*   list_handler.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:52:45 by avancoll          #+#    #+#             */
-/*   Updated: 2023/01/24 16:42:43 by avancoll         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:40:27 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,18 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 }
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+t_list	*free_list(t_list *stack_a, int event)
 {
-	if (!lst || !new)
-		return ;
-	new->next = *lst;
-	*lst = new;
+	t_list	*temp;
+
+	while (stack_a)
+	{
+		temp = stack_a;
+		stack_a = stack_a->next;
+		free(temp);
+		temp = NULL;
+	}
+	if (event == 1)
+		write(2, "Error\n", 7);
+	return (NULL);
 }

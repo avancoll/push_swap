@@ -6,7 +6,7 @@
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:58:54 by avancoll          #+#    #+#             */
-/*   Updated: 2023/02/02 18:10:22 by avancoll         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:40:24 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_list	*ft_lstlast(t_list *lst);
 int		ft_lstsize(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstadd_front(t_list **lst, t_list *new);
-t_list	*free_list(t_list *stack_a);
+t_list	*free_list(t_list *stack_a, int event);
 t_list	*parsing(char **argv, t_data *data);
 int		ft_atoi(const char *s, t_data **data);
 void	swap(t_list **stack, int event);

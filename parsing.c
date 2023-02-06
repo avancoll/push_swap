@@ -6,24 +6,36 @@
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 14:50:24 by avancoll          #+#    #+#             */
-/*   Updated: 2023/02/02 16:28:52 by avancoll         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:41:31 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*free_list(t_list *stack_a)
+int	ft_atoi(const char *s, t_data **data)
 {
-	t_list	*temp;
+	int						i;
+	unsigned long long		res;
+	int						sign;
 
-	while (stack_a)
-	{
-		temp = stack_a;
-		stack_a = stack_a->next;
-		free(temp);
-		temp = NULL;
-	}
-	return (NULL);
+	i = 0;
+	res = 0;
+	sign = 1;
+	while ((s[i] >= 9 && s[i] <= 13) || s[i] == 32)
+		i++;
+	if (s[i] == '-' || s[i] == '+')
+		if (s[i++] == '-')
+			sign = -sign;
+	if (!s[i])
+		(*data)->error = 1;
+	while (s[i] == '0')
+		i++;
+	while (s[i] && s[i] >= '0' && s[i] <= '9')
+		res = res * 10 + s[i++] - '0';
+	if ((s[i] && (s[i] < '0' || s[i] > '9')) || (res > 2147483647 && sign == 1)
+		|| (res > 2147483648 && sign == -1))
+		(*data)->error = 1;
+	return (res * sign);
 }
 
 t_list	*parsing(char **argv, t_data *data)
@@ -42,14 +54,30 @@ t_list	*parsing(char **argv, t_data *data)
 	{
 		new = ft_lstnew(ft_atoi(argv[i], &data));
 		if (!new)
-			return (free_list(stack_a));
+			return (free_list(stack_a, 1));
 		new->value = 0;
 		ft_lstadd_back(&stack_a, new);
 	}
 	data->size = i - 1;
 	if (data->error)
-		return (free_list(stack_a));
+		return (free_list(stack_a, 1));
 	return (stack_a);
+}
+
+int	is_sorted(t_list *stack_a)
+{
+	t_list	*temp;
+
+	temp = stack_a;
+	while (temp->next)
+	{
+		if (temp->next->content > temp->content)
+			temp = temp->next;
+		else
+			return (0);
+	}
+	free_list(stack_a, 0);
+	return (1);
 }
 
 int	is_double(t_list *stack_a)
@@ -63,7 +91,7 @@ int	is_double(t_list *stack_a)
 		{
 			if (stack_a->content == temp->content)
 			{
-				free_list(stack_a);
+				free_list(stack_a, 1);
 				return (1);
 			}
 			temp = temp->next;

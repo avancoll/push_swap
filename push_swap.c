@@ -6,26 +6,24 @@
 /*   By: avancoll <avancoll@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 16:58:36 by avancoll          #+#    #+#             */
-/*   Updated: 2023/02/02 18:12:55 by avancoll         ###   ########.fr       */
+/*   Updated: 2023/02/06 16:40:41 by avancoll         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(t_list *stack_a)
+void	algorithm(t_list **stack_a, t_list **stack_b, t_data data)
 {
-	t_list	*temp;
-
-	temp = stack_a;
-	while (temp->next)
-	{
-		if (temp->next->content > temp->content)
-			temp = temp->next;
-		else
-			return (0);
-	}
-	free_list(stack_a);
-	return (1);
+	if (data.size == 2)
+		sort_two(stack_a);
+	else if (data.size == 3)
+		sort_three(stack_a, 2);
+	else if (data.size == 4)
+		sort_four(stack_a, stack_b, 0, 3);
+	else if (data.size == 5)
+		sort_five(stack_a, stack_b);
+	else
+		radix(stack_a, stack_b, data);
 }
 
 int	main(int argc, char **argv)
@@ -46,6 +44,6 @@ int	main(int argc, char **argv)
 		return (1);
 	transform(stack_a, &data);
 	algorithm(&stack_a, &stack_b, data);
-	free_list(stack_a);
+	free_list(stack_a, 0);
 	return (0);
 }
